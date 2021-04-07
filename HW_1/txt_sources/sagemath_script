@@ -1,0 +1,18 @@
+# n task
+from sage.graphs.connectivity import spqr_tree
+H=Graph({"AL":["GR","ME","MK","RS"],"GR":["BG","MK","TR"],"ME":["BA","HR","KO","RS"],"MK":["BG","RS"],"RS":["BA","BG","HR","HU","KO","RO"],"AT":["CZ","DE","HU","IT","LI","SK","SL","CH"],"CZ":["DE","PL","SK"],"DE":["BE","FR","LU","NL","PL","CH"],"HU":["HR","SK","SL","UA"],"IT":["FR","SL","CH"],"LI":["CH"],"SK":["PL","UA"],"SL":["HR"],"CH":["FR"],"BY":["LV","LT","PL","RU","UA"],"LV":["EE","LT","RU"],"LT":["PL","RU"],"PL":["RU","UA"],"RU":["EE","UA"],"UA":["MD","RO"],"BE":["FR","LU","NL"],"FR":["LU"],"BA":["HR"],"BG":["RO","TR"],"RO":["MD"]}
+)
+H = H.to_undirected()
+tree = spqr_tree(H)
+
+plot(tree)
+
+result: https://sagecell.sagemath.org/?z=eJxNUttqg0AQffcrxCeF4AcU8qCJdSWbKl4KbZEQEpsKjVq1hVL67z0z213zMoznNrPrvo791Z6Ol8a_jMfhbfJPfdc1p7n9audvu70O_Tjb0_AxHuaxaSyxjknm_jiBdO5enDh3Vs4-orJDyQunXhEIKow1WuaEQkVoAECQa5caA1TaoABUrWWUDaIyrpREQUmizTOAbaT5pESRCUpBowuJshEkhxByVmZS8TU7aRKh9zREUsiD1CJlRTJEvMSSWgVEJbwEW29mYQFajfuCD5ctlkL-p9UsV3b04RP18pG2KPUCeWV8YMBHkeZB1dzqeAVkHH_jyyvjUwAqgP3W3GQYmUPo89d8H7QPh4bBsjP-CA1IzZ9Fq_LqX8uzhL22hT_3h8_u3I54Ss3Z9Sx6PSDMS3KFZ1nDez-79OX9AU26ns4=&lang=sage&interacts=eJyLjgUAARUAuQ==
+
+# l task
+from sage.graphs.connectivity import blocks_and_cuts_tree
+G = Graph({"AL":["GR","ME","MK","RS"],"GR":["BG","MK","TR"],"ME":["BA","HR","KO","RS"],"MK":["BG","RS"],"RS":["BA","BG","HR","HU","KO","RO"],"AD":["FR","SP"],"FR":["BE","DE","IT","LU","MC","SP","CH"],"SP":["PT"],"AT":["CZ","DE","HU","IT","LI","SK","SL","CH"],"CZ":["DE","PL","SK"],"DE":["BE","DK","LU","NL","PL","CH"],"HU":["HR","SK","SL","UA"],"IT":["SM","SL","CH","VA"],"LI":["CH"],"SK":["PL","UA"],"SL":["HR"],"BY":["LV","LT","PL","RU","UA"],"LV":["EE","LT","RU"],"LT":["PL","RU"],"PL":["RU","UA"],"RU":["EE","FI","NO","UA"],"UA":["MD","RO"],"BE":["LU","NL"],"BA":["HR"],"BG":["RO","TR"],"RO":["MD"],"FI":["NO","SE"],"NO":["SE"],"IE":["UK"]}
+         )
+T = blocks_and_cuts_tree(G)
+plot(T)
+https://sagecell.sagemath.org/?z=eJxtUl9rgzAQf_dThDxVkH6AwR6sWiuNVTQWtiHSOdeVtVU0G4yx7767y5L6MB-O4_fvLjGvY39h0-HYLY_jYXiblm1_vXatOn2e1Bc7XYZ-VOz53LfvU3O4vjTth5oaNXadE7N7FqNn8c19we-eeFxwj6cRli2UouS1hyBQq9igskAUVIj6AGzQtc2sAVTGoAGoRksoGTaVdWUo8kMUrZEqcwTWei5uE2JJJBSBrjTQIo8HG1RCC8pcUozEPng0LhqjrQm68ASlsFYQgpyUudB8TU47emum7oQRaSskg4jOckutfKQSWqJMZ7M8vicKtsD99N50UfnNV4q_SOhXD9iLPY6XZnJRWS0wwEeR4YGqqTWRGsgpcuYrKutb443sMktBBSoN7T9Z0T2Y0yPgzxaMKTmzTwJaba8pGnrKLiMEdkTqPqHYCq76x2Hmcx0J7_G_h7qIXWc492oh3V96NLTT&lang=sage&interacts=eJyLjgUAARUAuQ==
