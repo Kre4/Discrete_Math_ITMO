@@ -2,15 +2,17 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from help_functions import *
 from networkx.algorithms import approximation, connectivity
+from networkx.algorithms.approximation import vertex_cover
 
 null_degree_nodes = ["CY", "IS", "MT"]
-COLORS = ["b", "g", "y", "#9457EB", "#004242", "#FF43A4", "#FA8837", "#05AFB2", "#B22030", "#A0785A"]
+COLORS = ["b", "#FF43A4", "y", "#05AFB2", "#004242", "g", "#FA8837", "#9457EB", "#B22030", "#A0785A"]
 
 
 def solve_b(G):
     Graph = nx.Graph(G)
     print("|V| = " + str(len(Graph.nodes)))
     print("|E| = " + str(len(Graph.edges)))
+    Graph = biggest_component(G)
     max_degree = -1
     min_degree = 1000
     for ISO in Graph.nodes:
@@ -20,7 +22,7 @@ def solve_b(G):
             min_degree = Graph.degree[ISO]
     print("Min deg = " + str(min_degree))
     print("Max deg = " + str(max_degree))
-    Graph = biggest_component(Graph)
+
     print("Radius = " + str(nx.radius(Graph)))
     print("Diameter = " + str(nx.diameter(Graph)))
     print("Girth = " + str(len(nx.minimum_cycle_basis(G)[0])) + ". Example: " + str(nx.minimum_cycle_basis(G)[0]))
@@ -65,35 +67,41 @@ def solve_e(G):
 
 def solve_f(G):
     Graph = biggest_component(G)
-    in_set = nx.algorithms.approximation.clique.clique_removal(Graph)
-    print("Size of independent set: " + str(len(in_set[0])))
-    for item in in_set[0]:
-        print(item)
+
+    in_set = nx.algorithms.approximation.maximum_independent_set(Graph)
+    print("Size of independent set: " + str(len(in_set)))
+    print(*in_set, sep=' ')
 
 
 def solve_g(G):
     Graph = biggest_component(G)
     max_w = nx.max_weight_matching(Graph, maxcardinality=True, weight=0)
 
-    for item in max_w:
-        print(item)
-    print(len(max_w))
+    print(*max_w, sep=', ')
+    print("Size of maximum matching: " + str(len(max_w)))
 
 
 def solve_h(G):
     Graph = biggest_component(G)
-    cover = nx.algorithms.approximation.min_weighted_vertex_cover(Graph)
-    for item in cover:
-        print(item)
-    print(len(cover))
-
+    #cover = nx.algorithms.approximation.min_weighted_vertex_cover(Graph)
+    color = list()
+    cover = ['SL', 'UK', 'UA', 'AT', 'RO', 'IT', 'MK', 'TR', 'LV', 'BY', 'PL', 'RS', 'DE', 'BE', 'SP', 'SK', 'ME', 'FI', 'FR', 'HR', 'RU', 'LI', 'NO', 'GR']
+    for node in Graph.nodes:
+        if node in cover:
+            color.append(COLORS[5])
+        else:
+            color.append("r")
+    print(*cover, sep=', ')
+    print("Size of min. vertex cover: " + str(len(cover)))
+    show_graph(Graph, color=color)
+    
 
 def solve_i(G):
     Graph = biggest_component(G)
     cover = nx.algorithms.min_edge_cover(Graph)
-    for item in cover:
-        print(item)
-    print(len(cover))
+
+    print(*cover, sep=', ')
+    print("Size of min. edge cover: " + str(len(cover)))
 
 
 def solve_j(G):
@@ -108,11 +116,17 @@ def solve_j(G):
 
 def solve_k(G):
     Graph = biggest_component(G)
-    make_color_edge_file()
+    # make_color_edge_file()
+    counter = 0
     show_graph(Graph)
+    for node in Graph.nodes:
+        if Graph.degree[node] % 2 == 1:
+            counter += 1
+    print(counter)
+    print(len(Graph.edges))
 
 
-def solve_l(G):
+def solve_l_do_not_use_it(G):
     comp = nx.k_components(G)[2]
     nodes = dict()
     for i in G.nodes:
@@ -132,7 +146,7 @@ def solve_l(G):
     show_graph(block_cut_tree, color=[COLORS[1], COLORS[3], COLORS[2]])
 
 
-def solve_l_2nd_variant(G):
+def solve_l(G):
     adjacency_list(G)
     parse_adjacency_list_for_sage()
 
@@ -151,13 +165,14 @@ def solve_m(G):
     colors = list()
     for item in nodes:
         colors.append(nodes[item])
+    print("Amount of components: " + str(len(components)))
     show_graph(G, color=colors, needToSave=False, name="png/task_m")
 
 
 def solve_n(G):
     biconnected_component = max((list(nx.biconnected_components(biggest_component(G)))), key=len)
     Graph = nx.Graph()
-    f = open("test.txt")
+    f = open("txt_sources/test.txt")
     for line in f.readlines():
         tmp = line.split(", ")
         if tmp[0] in biconnected_component:
@@ -177,9 +192,9 @@ def solve_o(G, show_the_tree=False):
     for node in mst.adj:
         for edge in mst.adj[node]:
             weight += (mst.adj[node][edge]["weight"])
-    print(weight / 2)
+    if show_the_tree:
+        print(weight / 2)
 
-    # 13939
 
     if show_the_tree:
         show_tree(mst, show_weight=True)
@@ -195,11 +210,9 @@ def solve_p(G):
         if current_weight < min:
             min = current_weight
             centroid = []
-            print(min)
         if current_weight == min:
             centroid.append(node)
-    print(dfs_weight(mst, 'AL'))
-    print(str(centroid) + str(min))
+    print(str(centroid))
     show_tree(mst)
 
 
@@ -218,5 +231,6 @@ def solve_q(G):
     correct_prufer = list()
     for number in prufer:
         correct_prufer.append(list(new_nodes.keys())[list(new_nodes.values()).index(number)])
-
+    print(len(prufer))
+    print(prufer)
     print(correct_prufer)

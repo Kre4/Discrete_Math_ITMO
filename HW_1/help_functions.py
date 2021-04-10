@@ -109,17 +109,17 @@ def adjacency_list(G):
 
 
 def was_it_taken_j(G):
-    f = open("task_j")
+    f = open("txt_sources/task_j")
     unique = set()
     for line in f.readlines():
         unique.add(line.split(" ")[0])
         unique.add(line.split(" ")[1])
-    print(len(unique))
-    print(len(biggest_component(G).edges))
+    print("The same amount?")
+    print(len(biggest_component(G).edges) == len(unique))
 
 
 def parse_adjacency_list_for_sage():
-    f = open("adjacency_list")
+    f = open("txt_sources/adjacency_list")
 
     result = "{"
     i = 0
