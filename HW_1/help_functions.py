@@ -102,7 +102,7 @@ def make_color_edge_file(G, filename="edge_coloring"):
 
 
 def adjacency_list(G):
-    nx.write_adjlist(G, "adjacency_list")
+    nx.write_adjlist(G, "txt_sources/adjacency_list")
 
 
 def was_it_taken_j(G):
