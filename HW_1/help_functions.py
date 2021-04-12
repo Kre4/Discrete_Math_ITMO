@@ -1,9 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-import graphviz
-
-from networkx.drawing.nx_pydot import graphviz_layout
 
 null_degree_nodes = ["CY", "IS", "MT"]
 COLORS = ["b", "g", "y", "#9457EB", "#004242", "#FF43A4", "#FA8837", "#05AFB2", "#B22030", "#A0785A"]

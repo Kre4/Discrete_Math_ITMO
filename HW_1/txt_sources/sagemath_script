@@ -1,3 +1,6 @@
+# h task
+https://sagecell.sagemath.org/?z=eJxNUstKw0AU3fcrwqwSCH6A4CLvhEweZJKCliAiBd1oCUUE8d89544zTRe3N-d170xSBQ9Btb1c3sIflWh1f1LVpGLVFSwtymTUGhMElVYOnSeiUBFNANR0tYM3QOUMFkB1WkHFUC_eNVCU5BSVpMxIoLRzuU3O0swomq4us6JYZTWVaKEcZ4mZ2WdPziVjrLWhiycw2lshhFyUo7b8Kk4_unVTe-1E1opkiOQst9QlIdXIEqbbzYrVUShswf3s3nJR481n9H8k-vSRvT5y_OwmT4vXggFfFI4HtUrrIi0wSuTONy3eV_JG-sFTqKC63L-TVO7BnZ5AsluwkuTBfxJorX2VaPSSbQoCvZC2byR2wVX_HgL3iw6vn1_njd_kHf6v5-9nAcLocNneP66hPEV_Ja6fTg==&lang=sage&interacts=eJyLjgUAARUAuQ==
+
 # n task
 from sage.graphs.connectivity import spqr_tree
 H=Graph({"AL":["GR","ME","MK","RS"],"GR":["BG","MK","TR"],"ME":["BA","HR","KO","RS"],"MK":["BG","RS"],"RS":["BA","BG","HR","HU","KO","RO"],"AT":["CZ","DE","HU","IT","LI","SK","SL","CH"],"CZ":["DE","PL","SK"],"DE":["BE","FR","LU","NL","PL","CH"],"HU":["HR","SK","SL","UA"],"IT":["FR","SL","CH"],"LI":["CH"],"SK":["PL","UA"],"SL":["HR"],"CH":["FR"],"BY":["LV","LT","PL","RU","UA"],"LV":["EE","LT","RU"],"LT":["PL","RU"],"PL":["RU","UA"],"RU":["EE","UA"],"UA":["MD","RO"],"BE":["FR","LU","NL"],"FR":["LU"],"BA":["HR"],"BG":["RO","TR"],"RO":["MD"]}
@@ -11,7 +14,7 @@ result: https://sagecell.sagemath.org/?z=eJxNUttqg0AQffcrxCeF4AcU8qCJdSWbKl4KbZE
 
 # l task
 from sage.graphs.connectivity import blocks_and_cuts_tree
-G = Graph({"AL":["GR","ME","MK","RS"],"GR":["BG","MK","TR"],"ME":["BA","HR","KO","RS"],"MK":["BG","RS"],"RS":["BA","BG","HR","HU","KO","RO"],"AD":["FR","SP"],"FR":["BE","DE","IT","LU","MC","SP","CH"],"SP":["PT"],"AT":["CZ","DE","HU","IT","LI","SK","SL","CH"],"CZ":["DE","PL","SK"],"DE":["BE","DK","LU","NL","PL","CH"],"HU":["HR","SK","SL","UA"],"IT":["SM","SL","CH","VA"],"LI":["CH"],"SK":["PL","UA"],"SL":["HR"],"BY":["LV","LT","PL","RU","UA"],"LV":["EE","LT","RU"],"LT":["PL","RU"],"PL":["RU","UA"],"RU":["EE","FI","NO","UA"],"UA":["MD","RO"],"BE":["LU","NL"],"BA":["HR"],"BG":["RO","TR"],"RO":["MD"],"FI":["NO","SE"],"NO":["SE"],"IE":["UK"]}
+G=Graph({"AL":["GR","ME","MK","RS"],"GR":["BG","MK","TR"],"ME":["BA","HR","KO","RS"],"MK":["BG","RS"],"RS":["BA","BG","HR","HU","KO","RO"],"AD":["FR","SP"],"FR":["BE","DE","IT","LU","MC","SP","CH"],"SP":["PT"],"AT":["CZ","DE","HU","IT","LI","SK","SL","CH"],"CZ":["DE","PL","SK"],"DE":["BE","DK","LU","NL","PL","CH"],"HU":["HR","SK","SL","UA"],"IT":["SM","SL","CH","VA"],"LI":["CH"],"SK":["PL","UA"],"SL":["HR"],"BY":["LV","LT","PL","RU","UA"],"LV":["EE","LT","RU"],"LT":["PL","RU"],"PL":["RU","UA"],"RU":["EE","FI","NO","UA"],"UA":["MD","RO"],"BE":["LU","NL"],"BA":["HR"],"BG":["RO","TR"],"RO":["MD"],"FI":["NO","SE"],"NO":["SE"],"IE":["UK"]}
          )
 T = blocks_and_cuts_tree(G)
 plot(T)

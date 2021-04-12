@@ -85,7 +85,9 @@ def solve_h(G):
     Graph = biggest_component(G)
     #cover = nx.algorithms.approximation.min_weighted_vertex_cover(Graph)
     color = list()
-    cover = ['SL', 'UK', 'UA', 'AT', 'RO', 'IT', 'MK', 'TR', 'LV', 'BY', 'PL', 'RS', 'DE', 'BE', 'SP', 'SK', 'ME', 'FI', 'FR', 'HR', 'RU', 'LI', 'NO', 'GR']
+    adjacency_list(Graph)
+    parse_adjacency_list_for_sage()
+    cover = ['AT', 'ME', 'HR', 'DE', 'RS', 'UA', 'MK', 'BE', 'RU', 'CH', 'SP', 'SE', 'GR', 'LV', 'PL', 'BG', 'SL', 'FR', 'SK', 'IT', 'NO', 'IE', 'RO', 'BY']
     for node in Graph.nodes:
         if node in cover:
             color.append(COLORS[5])
